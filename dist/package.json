@@ -1,0 +1,27 @@
+{
+  "name": "auth-service",
+  "version": "0.0.1",
+  "description": "a service to authenticate and authorisation",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tw-wee/auth-service.git"
+  },
+  "keywords": [
+    "authentication",
+    "&",
+    "authorisation"
+  ],
+  "author": "koly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tw-wee/auth-service/issues"
+  },
+  "homepage": "https://github.com/tw-wee/auth-service",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

@@ -1,0 +1,16 @@
+version: '2'
+services:
+  auth:
+    build: .
+    container_name: auth-node
+    command: ["start-auth.sh"]
+    ports:
+      - "10300:3000"
+    networks:
+      - wee-net
+    volumes:
+      - ../dist:/app
+
+networks:
+  wee-net:
+    driver: bridge

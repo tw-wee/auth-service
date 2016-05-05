@@ -1,5 +1,4 @@
 # auth-service
---------
 
 ### prerequisite
 * install [nodejs](http://nodejs.org) and npm

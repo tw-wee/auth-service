@@ -23,5 +23,8 @@
   "homepage": "https://github.com/tw-wee/auth-service",
   "dependencies": {
     "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }

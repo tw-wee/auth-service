@@ -6,14 +6,15 @@ const app = express();
 const port = 10301;
 
 app.post('/users', (req, res) => {
-    res.status(200).json({
-        name: 'koly',
-        role: 'admin'
-    });
+  console.log('post on users', req.body);
+  res.status(200).json({
+    name: 'koly',
+    role: 'admin'
+  });
 });
 
 app.use((req, res) => {
-    res.status(404).json({message: 'Hi, I am kidding...'});
+  res.status(404).json({message: 'Hi, I am kidding...'});
 });
 
 app.listen(port, _ => {

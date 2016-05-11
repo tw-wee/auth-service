@@ -16,6 +16,23 @@ gulp.task('compile', _ => {
       .pipe(gulp.dest('dist'));
 });
 
+gulp.task('compileMock', _ => {
+    return gulp.src('mock-service/**/*.js', {base: '.'})
+      .pipe(cache('compileMock'))
+      .pipe(sourcemaps.init())
+      .pipe(babel())
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('mock-service-dist'));
+});
+
+gulp.task('mock', _ => {
+    return nodemon({
+        script: 'mock-service-dist/mock-service/user-service.js',
+        watch: ['mock-service/user-service.js'],
+        tasks: ['compileMock']
+    });
+});
+
 gulp.task('start', _ => {
   return nodemon({
       script: 'dist/index.js',

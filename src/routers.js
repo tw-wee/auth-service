@@ -9,5 +9,6 @@ const routers = express.Router();
 routers.post('/login', login);
 routers.post('/logout', logout);
 
+// methods below should be accessed with api-key
 
 export default routers;

@@ -25,7 +25,7 @@ gulp.task('compileMock', _ => {
       .pipe(gulp.dest('mock-service-dist'));
 });
 
-gulp.task('mock', _ => {
+gulp.task('mock', ['compileMock'], _ => {
     return nodemon({
         script: 'mock-service-dist/mock-service/user-service.js',
         watch: ['mock-service/user-service.js'],
@@ -33,7 +33,7 @@ gulp.task('mock', _ => {
     });
 });
 
-gulp.task('start', _ => {
+gulp.task('start', ['compile'], _ => {
   return nodemon({
       script: 'dist/index.js',
       watch: ['index.js', 'src/**/*.js'],

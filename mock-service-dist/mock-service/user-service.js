@@ -10,17 +10,18 @@ var app = (0, _express2.default)();
 var port = 10301;
 
 app.post('/users', function (req, res) {
-    res.status(200).json({
-        name: 'koly',
-        role: 'admin'
-    });
+  console.log('post on users', req.body);
+  res.status(200).json({
+    name: 'koly',
+    role: 'admin'
+  });
 });
 
 app.use(function (req, res) {
-    res.status(404).json({ message: 'Hi, I am kidding...' });
+  res.status(404).json({ message: 'Hi, I am kidding...' });
 });
 
 app.listen(port, function (_) {
-    console.log('mock user service is running at ' + port + '...');
+  console.log('mock user service is running at ' + port + '...');
 });
 //# sourceMappingURL=user-service.js.map

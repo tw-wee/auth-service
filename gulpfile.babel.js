@@ -8,18 +8,17 @@ import nodemon from 'gulp-nodemon';
 import cache from 'gulp-cached';
 
 gulp.task('compile', _ => {
-    return gulp.src(['index.js', 'src/**/*.js'])
+    return gulp.src(['index.js', 'src/**/*.js'], {base: '.'})
       .pipe(cache('compile'))
       .pipe(sourcemaps.init())
       .pipe(babel())
-      .pipe(concat('all.js'))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('dist'));
 });
 
 gulp.task('start', _ => {
   return nodemon({
-      script: 'dist/all.js',
+      script: 'dist/index.js',
       watch: ['index.js', 'src/**/*.js'],
       tasks: ['compile']
   });  

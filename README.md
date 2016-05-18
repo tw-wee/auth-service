@@ -17,3 +17,7 @@
 
 ### compile the codes
 `gulp compile`
+
+
+### use docker to run a standalone app
+`gulp compile` then `./infrastructure/run app`

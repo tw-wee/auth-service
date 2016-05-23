@@ -24,6 +24,7 @@
   "dependencies": {
     "bluebird": "^3.3.5",
     "express": "^4.13.4",
+    "lodash": "^4.13.0",
     "redis": "^2.6.0-2",
     "superagent": "^1.8.3"
   },

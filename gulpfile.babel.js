@@ -16,6 +16,11 @@ gulp.task('compile', _ => {
       .pipe(gulp.dest('dist'));
 });
 
+gulp.task('dist', ['compile'], _ => {
+    return gulp.src('./package.json')
+      .pipe(gulp.dest('dist'));
+});
+
 gulp.task('compileMock', _ => {
     return gulp.src('mock-service/**/*.js', {base: '.'})
       .pipe(cache('compileMock'))

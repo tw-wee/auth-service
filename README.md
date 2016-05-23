@@ -20,4 +20,4 @@
 
 
 ### use docker to run a standalone app
-`gulp compile` then `./infrastructure/run app`
+`gulp dist` then `./infrastructure/run app`

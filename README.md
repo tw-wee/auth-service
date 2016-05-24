@@ -13,11 +13,10 @@
 `gulp mock`, the service is running at 10301
 
 ### run the app
-`gulp start`
+before run the app, you should run `gulp mock`.`gulp start`
 
 ### compile the codes
 `gulp compile`
-
 
 ### use docker to run a standalone app
 `gulp dist` then `./infrastructure/run app`

@@ -7,17 +7,25 @@ import concat from 'gulp-concat';
 import nodemon from 'gulp-nodemon';
 import cache from 'gulp-cached';
 
+const sourceFiles = ['index.js', 'src/**/*.js'];
+
 gulp.task('compile', _ => {
-    return gulp.src(['index.js', 'src/**/*.js'], {base: '.'})
+    return gulp.src(sourceFiles, {base: '.'})
       .pipe(cache('compile'))
       .pipe(sourcemaps.init())
       .pipe(babel())
       .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('build'));
+});
+
+gulp.task('copyPackageJson', _ => {
+    return gulp.src('package.json')
       .pipe(gulp.dest('dist'));
 });
 
-gulp.task('dist', ['compile'], _ => {
-    return gulp.src('./package.json')
+gulp.task('dist', ['copyPackageJson'], _ => {
+    return gulp.src(sourceFiles, {base: '.'})
+      .pipe(babel())
       .pipe(gulp.dest('dist'));
 });
 
@@ -40,7 +48,7 @@ gulp.task('mock', ['compileMock'], _ => {
 
 gulp.task('start', ['compile'], _ => {
   return nodemon({
-      script: 'dist/index.js',
+      script: 'build/index.js',
       watch: ['index.js', 'src/**/*.js'],
       tasks: ['compile']
   });  

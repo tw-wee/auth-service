@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "babel index.js src --watch -d build"
+    "build": "babel index.js src -d build",
+    "dist": "babel index.js src -d dist && cp package.json dist/"
   },
   "repository": {
     "type": "git",

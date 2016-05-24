@@ -1,13 +1,9 @@
 'use strict';
 
 import express from 'express';
-import routers from './src/routers';
+import routers from './routers';
 
 const app = express();
-
-app.get('/', function(req, res){
-  res.send('Hello, I am auth service. ');
-});
 
 app.use('/', routers);
 

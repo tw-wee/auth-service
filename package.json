@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "ava --tap | tap-nyan",
+    "testWithMock": "npm run mock & npm test",
     "compile": "babel index.js src -d build",
     "compile:watch": "babel index.js src --watch -d build",
     "start": "npm run compile:watch & nodemon --watch build build/index.js",

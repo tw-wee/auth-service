@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "ava --tap | tap-nyan",
-    "build": "babel index.js src -d build",
-    "dist": "babel index.js src -d dist && cp package.json dist/"
+    "compile": "babel index.js src -d build",
+    "compile:watch": "babel index.js src --watch -d build",
+    "start": "npm run compile:watch & nodemon --watch build build/index.js",
+    "mock": "babel mock-service --watch -d mock-service-dist & nodemon --watch mock-service-dist ./mock-service-dist/user-service.js",
+    "build": "babel index.js src -d dist && cp package.json dist/"
   },
   "repository": {
     "type": "git",

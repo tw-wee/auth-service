@@ -3,23 +3,24 @@
 ### prerequisite
 * install [nodejs](http://nodejs.org)v6.0 and npm
 
-### install [gulp](http://gulpjs.com/) globally
-`npm install gulp-cli --global`
-
 ### install dependencies
 `npm install`
 
 ### run the mock service
-`gulp mock`, the service is running at 10301
+`npm mock`, the service is running at 10301
 
 ### run the app
-before run the app, you should run `gulp mock`. Then `gulp start`
+* `npm mock` to start the mock service
+* `cd infrastructure` and `./run redis` to start redis
+* `npm start` to start the app
 
 ### compile the codes
-`gulp compile`
+`npm run compile`
 
 ### use docker to run a standalone app
-`gulp dist` then `./infrastructure/run app`
+* `npm run build` 
+* `cd infrastructure`
+* `./run app`
 
 ### run test
 `npm test`

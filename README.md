@@ -21,8 +21,12 @@ before run the app, you should run `gulp mock`. Then `gulp start`
 ### use docker to run a standalone app
 `gulp dist` then `./infrastructure/run app`
 
+### run test
+`npm test`
+
 ### structure explaination
 build \- folder to hold the compile codes for start application
 dist  \- foler to hold the compile codes for docker to run
 src   \- source folder
+test  \- test folder
 

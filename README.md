@@ -1,5 +1,7 @@
 # auth-service
 
+[![Build Status](https://travis-ci.org/tw-wee/auth-service.svg?branch=master)](https://travis-ci.org/tw-wee/auth-service)
+
 ### prerequisite
 * install [nodejs](http://nodejs.org)v6.0 and npm
 

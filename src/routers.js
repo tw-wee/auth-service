@@ -20,6 +20,7 @@ routers.use((req, res, next) => {
   const apiKey = req.get('wee-key');
   console.log('api key', apiKey, utils.isEmpty(apiKey));
   if (utils.isEmpty(apiKey)) return res.status(401).json();
+
   redis.hgetallAsync(apiKey)
     .then(val => {
       if (utils.isEmpty(val)) return res.status(401).json();

@@ -29,4 +29,9 @@ routers.use((req, res, next) => {
   });
 });
 
+routers.use((req, res) => {
+  console.log('server error');
+    return res.status(500).json();
+});
+
 export default routers;

@@ -5,6 +5,7 @@ import login from './login';
 import logout from './logout';
 import utils from './utils';
 import redis from './redis';
+import apikey from './apikey';
 
 const routers = express.Router();
 
@@ -17,10 +18,9 @@ routers.post('/logout', logout);
 
 // methods below should be accessed with api-key
 routers.use((req, res, next) => {
-  const apiKey = req.get('wee-key');
-  console.log('api key', apiKey, utils.isEmpty(apiKey));
-  if (utils.isEmpty(apiKey)) return res.status(401).json();
+  if (!apikey.existsIn(req)) return res.status(401).json();
 
+  const apiKey = apikey.getKeyFrom(req);
   redis.hgetallAsync(apiKey)
     .then(val => {
       if (utils.isEmpty(val)) return res.status(401).json();

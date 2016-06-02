@@ -14,6 +14,4 @@ client.on('error', err => {
     console.log('Error' + err);
 });
 
-client.set('koly-key', 'hello redis', redis.print);
-
 export default client;

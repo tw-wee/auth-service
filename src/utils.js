@@ -3,9 +3,8 @@
 import _ from 'lodash';
 
 const utils = {
-   isEmpty: val => {
-      return _.isEmpty;
-   }
+   isEmpty: 
+     _.isEmpty
 };
 
 export default utils;

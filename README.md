@@ -28,8 +28,8 @@
 `npm test`
 
 ### structure explaination
-build \- folder to hold the compile codes for start application
-dist  \- foler to hold the compile codes for docker to run
-src   \- source folder
-test  \- test folder
+* build \- folder to hold the compile codes for start application
+* dist  \- foler to hold the compile codes for docker to run
+* src   \- source folder
+* test  \- test folder
 

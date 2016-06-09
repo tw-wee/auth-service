@@ -4,8 +4,8 @@ import express from 'express';
 import login from './login';
 import logout from './logout';
 import utils from './utils';
-import redis from './redis';
 import apikey from './apikey';
+import cache from './cache';
 
 const routers = express.Router();
 
@@ -21,12 +21,12 @@ routers.use((req, res, next) => {
   if (!apikey.existsIn(req)) return res.status(401).json();
 
   const apiKey = apikey.getKeyFrom(req);
-  redis.hgetallAsync(apiKey)
-    .then(val => {
-      if (utils.isEmpty(val)) return res.status(401).json();
-      console.log('the api key is ' + apiKey, val);   
-      res.status(200).json(val);
-    })
+  cache.get(apiKey)
+  .then(obj => {
+      if (utils.isEmpty(obj)) return res.status(401).json();
+      console.log('the api key is ' + apikey, obj);
+      res.status(200).json(obj);
+  })
   .catch(err => {
     console.log('getting redis error', err);
     res.status(500).json();

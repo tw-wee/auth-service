@@ -2,6 +2,7 @@
 
 import uuid from 'node-uuid';
 import redis from './redis';
+import utils from './utils';
 
 const expireTime = 24*60*60; // 24 hours
 
@@ -29,6 +30,9 @@ const cache = {
         })
         .catch(reject);
      });
+  },
+  expire: key => {
+      redis.expire(key, 1);
   }
 };
 

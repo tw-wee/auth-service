@@ -9,8 +9,8 @@ import cache from './cache';
 
 const routers = express.Router();
 
-routers.get('/login', (req, res) => {
-  res.status(200).send('Hello, this is awesome x login page');
+routers.get('*', (req, res) => {
+  res.status(200).send('Hello World!');
 });
 
 routers.post('/login', login);

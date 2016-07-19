@@ -6,7 +6,7 @@ import bluebird from 'bluebird';
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
-const url = 'redis://192.168.99.100:10379';
+const url = process.env.NODE_ENV ? 'redis://172.16.238.14:6379' : 'redis://localhost:10379';
 
 const client = redis.createClient(url);
 

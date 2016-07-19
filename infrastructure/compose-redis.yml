@@ -6,7 +6,8 @@ services:
     ports:
       - "10379:6379"
     networks:
-      - wee-net
+      wee-net:
+        ipv4_address: 172.16.238.14
 
 networks:
   wee-net:
